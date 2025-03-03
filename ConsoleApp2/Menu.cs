@@ -68,6 +68,12 @@ namespace ConsoleApp2
                     Console.Clear();
                     break;
 
+                case 2: //Ad veya soyadin rakam icerme hatasi
+                    Console.Clear();
+                    Console.WriteLine("Ad veya soyad rakam iceremez. Lutfen tekrar deneyiniz.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
             }
 
         }

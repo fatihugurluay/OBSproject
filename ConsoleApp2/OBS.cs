@@ -11,8 +11,13 @@ namespace ConsoleApp2
     {
         List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
         List<Ders> dersListesi = new List<Ders>();
+        List<int> intListesi = new List<int>();
         public OBS()
         {
+
+            for (int i = 0; i < 10; i++)
+            intListesi.Add(i);
+
         }
 
 
@@ -65,16 +70,38 @@ namespace ConsoleApp2
             Menu menu = new Menu();
             Ogrenci yeniOgrenci = new Ogrenci();
 
+            ogrenciAd:
             Console.WriteLine("Ogrencinin adini giriniz:");
             Console.WriteLine("----------------------------------");
             yeniOgrenci.Ad = Console.ReadLine();
             Console.Clear();
 
+            foreach (int sayi in intListesi)
+            {
+                if (yeniOgrenci.Ad.Contains(sayi.ToString()))
+                {
+
+                    menu.HataMesajiGoster(2);
+                    goto ogrenciAd;
+                }
+            }
+            Console.Clear();
+
+            ogrenciSoyad:
             Console.WriteLine("Ogrencinin soyadini giriniz:");
             Console.WriteLine("----------------------------------");
             yeniOgrenci.Soyad = Console.ReadLine();
             Console.Clear();
 
+            foreach (int sayi in intListesi)
+            {
+                if (yeniOgrenci.Soyad.Contains(sayi.ToString()))
+                {
+
+                    menu.HataMesajiGoster(2);
+                    goto ogrenciSoyad;
+                }
+            }
             ogrenciNumarasi:
             Console.WriteLine("Ogrencinin numarasini giriniz:");
             Console.WriteLine("----------------------------------");
@@ -93,6 +120,8 @@ namespace ConsoleApp2
 
             ogrenciListesi.Add(yeniOgrenci);
             Console.Clear();
+
+            
         }
 
         public void OgrencileriListele()
