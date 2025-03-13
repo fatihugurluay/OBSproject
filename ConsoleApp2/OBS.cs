@@ -9,14 +9,8 @@ namespace ConsoleApp2
 {
     class OBS
     {
-        DersListe dersListe = new DersListe();
         Ogrenciservis ogrenciServisi = new Ogrenciservis();
-        List<Ders> dersListesi = new List<Ders>();
-        public OBS()
-        {
-
-        }
-
+        DersServis dersservisi = new DersServis();
 
         public void SecimIslemiYap(int secim)
         {
@@ -26,10 +20,10 @@ namespace ConsoleApp2
                     ogrenciServisi.OgrenciEkle();
                     break;
                 case 2:
-                    dersListe.DersEkle();
+                    dersservisi.DersEkle();
                     break;
                 case 3:
-                    ogrenciServisi.OgrencileriListele();
+                    OgrencileriListele();
                     break;
                 case 4:
                     DersleriListele();
@@ -43,8 +37,24 @@ namespace ConsoleApp2
         {
             Console.Clear();
 
-            foreach (Ders ders in dersListesi) //ders icerikleri listelenecek
+            foreach (Ders ders in dersservisi.DersListesi())
             {
+
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public void OgrencileriListele()
+        {
+            Console.Clear();
+
+            foreach (Ogrenci ogrenci in ogrenciServisi.OgrenciList())
+            {
+                Console.WriteLine("Ogrenci Adi: " + ogrenci.Ad);
+                Console.WriteLine("Ogrenci Soyadi: " + ogrenci.Soyad);
+                Console.WriteLine("Ogrenci Numarasi: " + ogrenci.OgrenciNo);
+                Console.WriteLine("---------------------------------------------");
 
             }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp2.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +11,6 @@ namespace ConsoleApp2
     {
         List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
         List<Ders> dersListesi = new List<Ders>();
-        List<int> intListesi = new List<int>();
-
-        public Ogrenciservis()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                intListesi.Add(i);
-            }
-        }
 
         public void OgrenciEkle()
         {
@@ -30,16 +22,11 @@ namespace ConsoleApp2
             Console.WriteLine("Ogrencinin adini giriniz:");
             Console.WriteLine("----------------------------------");
             yeniOgrenci.Ad = Console.ReadLine();
-            Console.Clear();
 
-            foreach (int sayi in intListesi)
+            if (!Yazi.YaziMi(yeniOgrenci.Ad))
             {
-                if (yeniOgrenci.Ad.Contains(sayi.ToString()))
-                {
-
-                    menu.HataMesajiGoster(2);
-                    goto ogrenciAd;
-                }
+                Hata.HataMesajiGoster(2);
+                goto ogrenciAd;
             }
             Console.Clear();
 
@@ -47,17 +34,13 @@ namespace ConsoleApp2
             Console.WriteLine("Ogrencinin soyadini giriniz:");
             Console.WriteLine("----------------------------------");
             yeniOgrenci.Soyad = Console.ReadLine();
-            Console.Clear();
-
-            foreach (int sayi in intListesi)
+            if (!Yazi.YaziMi(yeniOgrenci.Soyad))
             {
-                if (yeniOgrenci.Soyad.Contains(sayi.ToString()))
-                {
-
-                    menu.HataMesajiGoster(2);
-                    goto ogrenciSoyad;
-                }
+                Hata.HataMesajiGoster(2);
+                goto ogrenciSoyad;
             }
+                Console.Clear();
+
         ogrenciNumarasi:
             Console.WriteLine("Ogrencinin numarasini giriniz:");
             Console.WriteLine("----------------------------------");
@@ -69,15 +52,18 @@ namespace ConsoleApp2
             }
             catch (Exception)
             {
-                menu.HataMesajiGoster(0);
+                Hata.HataMesajiGoster(0);
                 goto ogrenciNumarasi;
             }
 
 
             ogrenciListesi.Add(yeniOgrenci);
             Console.Clear();
+        }
 
-
+        public List<Ogrenci> OgrenciList()
+        {
+            return ogrenciListesi;
         }
 
         public void OgrencileriListele()

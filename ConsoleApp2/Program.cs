@@ -29,7 +29,7 @@ namespace ConsoleApp2
                 }
                 else if ((secim <= 0 || (secim > 4 && secim !=9)) && !hataVerdi)
                 {
-                    menu.HataMesajiGoster(1);
+                    Hata.HataMesajiGoster(1);
                 }
             }
 
