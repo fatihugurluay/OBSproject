@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Ders.cs" />
     <Compile Include="DersServis.cs" />
+    <Compile Include="Kullanici.cs" />
     <Compile Include="Utilities\Hata.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="OBS.cs" />

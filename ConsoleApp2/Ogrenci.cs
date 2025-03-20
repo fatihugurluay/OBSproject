@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Ogrenci
+    class Ogrenci : Kullanici
     {
-        public string Ad;
-        public string Soyad;
-        public int OgrenciNo;
-        //public DateTime DogumTarihi;
-        
+        public int OgrenciNo { get; set; }
+        public string Bolum { get; set; }
+
     }
 }
